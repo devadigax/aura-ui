@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Glass UI — Component Showcase">
+    <title>Aura UI React Showcase</title>
+    <script type="module" crossorigin src="/assets/index-DrL0LVBj.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BQxlYbIM.css">
+  </head>
+  <!-- Optional anti-fouc theme load can be placed here -->
+  <script>
+    const s = localStorage.getItem('theme');
+    const d = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (s === 'dark' || (!s && d)) document.documentElement.setAttribute('data-theme','dark');
+  </script>
+  <body class="no-transition">
+    <div id="root"></div>
+    <script>setTimeout(() => document.body.classList.remove('no-transition'), 50);</script>
+  </body>
+</html>
