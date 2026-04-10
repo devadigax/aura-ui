@@ -1,0 +1,169 @@
+/* ==========================================================================
+   NAVS & TABS COMPONENT
+   Classes: .nav, .nav-item, .nav-link, .nav-tabs, .nav-pills,
+            .nav-underline, .tab-content, .tab-pane
+   ========================================================================== */
+
+/* --- Base Nav --- */
+.nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background: transparent;
+  font-family: inherit;
+  transition: color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--text-color);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link.active {
+  color: var(--accent);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.nav-link.disabled,
+.nav-link:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Nav badge */
+.nav-link .nav-badge {
+  font-size: 0.65rem;
+  padding: 0.15em 0.45em;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* --- Tabs variant --- */
+.nav-tabs {
+  border-bottom: 1px solid var(--glass-border);
+  border-radius: 0;
+  gap: 0;
+}
+
+.nav-tabs .nav-link {
+  border-radius: 8px 8px 0 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--accent);
+  background: var(--glass-bg);
+  border-color: var(--glass-border) var(--glass-border) var(--glass-bg);
+  border-bottom-color: transparent;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+}
+
+/* --- Pills variant --- */
+.nav-pills {
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 0.3rem;
+}
+
+.nav-pills .nav-link {
+  border-radius: 7px;
+}
+
+.nav-pills .nav-link.active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
+/* --- Underline variant --- */
+.nav-underline {
+  border-bottom: 1px solid var(--glass-border);
+  gap: 0;
+}
+
+.nav-underline .nav-link {
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: 0.6rem 1rem;
+}
+
+.nav-underline .nav-link.active {
+  color: var(--accent);
+  background: transparent;
+  border-bottom-color: var(--accent);
+}
+
+/* --- Tab Content --- */
+.tab-content {
+  padding: 1.25rem 0;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active,
+.tab-pane.show {
+  display: block;
+  animation: tab-fade-in 0.25s ease;
+}
+
+@keyframes tab-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Vertical nav */
+.nav-vertical {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.nav-vertical .nav-link {
+  width: 100%;
+}
+
+/* Fill / Justified */
+.nav-fill .nav-item,
+.nav-fill .nav-link {
+  flex: 1 1 auto;
+  text-align: center;
+  justify-content: center;
+}
+
+.nav-justified .nav-item,
+.nav-justified .nav-link {
+  flex: 1 1 0%;
+  text-align: center;
+  justify-content: center;
+}

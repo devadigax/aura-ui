@@ -1,0 +1,92 @@
+/* ==========================================================================
+   PAGINATION COMPONENT
+   Classes: .pagination, .page-item, .page-link,
+            .pagination-sm, .pagination-lg
+   ========================================================================== */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.page-item {
+  list-style: none;
+}
+
+.page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 0.6rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  font-family: inherit;
+}
+
+.page-link:hover {
+  color: var(--accent);
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.25);
+  transform: translateY(-1px);
+}
+
+.page-item.active .page-link {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
+.page-item.disabled .page-link {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Sizes */
+.pagination-sm .page-link {
+  min-width: 28px;
+  height: 28px;
+  font-size: 0.78rem;
+  border-radius: 6px;
+}
+
+.pagination-lg .page-link {
+  min-width: 48px;
+  height: 48px;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+/* Pill variant */
+.pagination-pill .page-link {
+  border-radius: 100px;
+}
+
+/* Icon inside page link */
+.page-link svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

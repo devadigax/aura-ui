@@ -1,0 +1,34 @@
+/* ==========================================================================
+   COLLAPSE COMPONENT
+   Classes: .collapse, .collapsing, .collapse.show
+   ========================================================================== */
+
+.collapse {
+  display: none;
+}
+
+.collapse.show {
+  display: block;
+}
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
+}
+
+/* Horizontal collapse */
+.collapse-horizontal .collapse {
+  height: auto !important;
+  width: 0;
+}
+
+.collapse-horizontal .collapse.show {
+  width: auto;
+}
+
+.collapse-horizontal .collapsing {
+  width: 0;
+  height: auto;
+  transition: width 0.35s ease;
+}

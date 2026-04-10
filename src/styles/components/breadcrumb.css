@@ -1,0 +1,65 @@
+/* ==========================================================================
+   BREADCRUMB COMPONENT
+   Classes: .breadcrumb, .breadcrumb-item, .breadcrumb-divider
+   ========================================================================== */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--text-muted);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '/';
+  color: var(--text-muted);
+  opacity: 0.4;
+  pointer-events: none;
+  font-weight: 400;
+}
+
+/* Custom divider via CSS variable */
+.breadcrumb[data-divider="chevron"] .breadcrumb-item + .breadcrumb-item::before {
+  content: '›';
+  font-size: 1rem;
+}
+
+.breadcrumb[data-divider="dot"] .breadcrumb-item + .breadcrumb-item::before {
+  content: '·';
+}
+
+.breadcrumb-item a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--accent);
+}
+
+.breadcrumb-item.active {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+/* Glass variant */
+.breadcrumb-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+}

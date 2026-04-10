@@ -1,0 +1,82 @@
+/* ==========================================================================
+   BUTTON GROUP COMPONENT
+   Classes: .btn-group, .btn-group-sm, .btn-group-lg, .btn-group-vertical
+   ========================================================================== */
+
+.btn-group {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.btn-group .btn {
+  border-radius: 0;
+  border: none;
+  border-right: 1px solid var(--glass-border);
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+.btn-group .btn:last-child {
+  border-right: none;
+}
+
+.btn-group .btn:first-child {
+  border-radius: 7px 0 0 7px;
+}
+
+.btn-group .btn:last-child {
+  border-radius: 0 7px 7px 0;
+}
+
+.btn-group .btn:only-child {
+  border-radius: 7px;
+}
+
+.btn-group .btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  z-index: 1;
+}
+
+/* Size modifiers */
+.btn-group-sm .btn {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+.btn-group-lg .btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* Vertical */
+.btn-group-vertical {
+  display: inline-flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.btn-group-vertical .btn {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--glass-border);
+  width: 100%;
+}
+
+.btn-group-vertical .btn:last-child {
+  border-bottom: none;
+}
+
+.btn-group-vertical .btn:first-child {
+  border-radius: 7px 7px 0 0;
+}
+
+.btn-group-vertical .btn:last-child {
+  border-radius: 0 0 7px 7px;
+}

@@ -1,0 +1,70 @@
+/* ==========================================================================
+   TABLE COMPONENT
+   ========================================================================== */
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 1.5rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--glass-border);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table th {
+  font-weight: 600;
+  color: var(--text-color);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.table tbody tr {
+  transition: var(--transition);
+}
+
+.table-hover tbody tr:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.table-sm th,
+.table-sm td {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.table-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.table-glass th,
+.table-glass td {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.table-glass tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-glass th {
+  background: rgba(0,0,0,0.03);
+}
+
+[data-theme="dark"] .table-glass th {
+  background: rgba(255,255,255,0.02);
+}

@@ -1,0 +1,218 @@
+/* ==========================================================================
+   NAVBAR COMPONENT
+   Classes: .navbar, .navbar-brand, .navbar-nav, .navbar-item, .navbar-link,
+            .navbar-toggle, .navbar-collapse, .navbar-glass,
+            .navbar-light, .navbar-dark, .navbar-sticky
+   ========================================================================== */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  position: relative;
+  z-index: 500;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Glass navbar */
+.navbar-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* Sticky */
+.navbar-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
+
+/* Fixed top */
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+}
+
+/* --- Brand / Logo --- */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-color);
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+
+.navbar-brand img {
+  height: 36px;
+  width: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* --- Nav Links --- */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  list-style: none;
+}
+
+.navbar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+  color: var(--accent);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+/* Underline style variant */
+.navbar-underline .navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0.85rem;
+  right: 0.85rem;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.navbar-underline .navbar-link:hover::after,
+.navbar-underline .navbar-link.active::after {
+  transform: scaleX(1);
+}
+
+/* --- End section (CTA buttons, icons) --- */
+.navbar-end {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+/* --- Mobile hamburger toggle --- */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease;
+}
+
+.navbar-toggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.navbar-toggle-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text-color);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animated X on open */
+.navbar-toggle.open .navbar-toggle-bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.navbar-toggle.open .navbar-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.open .navbar-toggle-bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* --- Collapse (mobile) --- */
+.navbar-collapse {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-collapse {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--glass-border);
+    margin-top: 0.5rem;
+  }
+
+  .navbar-collapse.open {
+    display: flex;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .navbar-item {
+    width: 100%;
+  }
+
+  .navbar-link {
+    width: 100%;
+  }
+
+  .navbar-end {
+    width: 100%;
+    justify-content: flex-start;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--glass-border);
+    margin-top: 0.5rem;
+    margin-left: 0;
+  }
+}

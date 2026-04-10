@@ -1,0 +1,124 @@
+/* ==========================================================================
+   SPINNERS COMPONENT
+   Classes: .spinner, .spinner-border, .spinner-grow,
+            .spinner-sm, .spinner-lg,
+            .spinner-primary, .spinner-success, .spinner-danger,
+            .spinner-warning, .spinner-info, .spinner-light, .spinner-white
+   ========================================================================== */
+
+/* --- Border spinner --- */
+.spinner-border {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 0.22em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-border 0.75s linear infinite;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+@keyframes spinner-border {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Grow / pulse spinner --- */
+.spinner-grow {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background: currentColor;
+  border-radius: 50%;
+  opacity: 0;
+  animation: spinner-grow 0.75s linear infinite;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+@keyframes spinner-grow {
+  0%   { transform: scale(0); opacity: 1; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* --- Dots spinner --- */
+.spinner-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  vertical-align: middle;
+}
+
+.spinner-dots span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: spinner-dots 1.2s ease infinite;
+}
+
+.spinner-dots span:nth-child(2) { animation-delay: 0.2s; }
+.spinner-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes spinner-dots {
+  0%, 100% { transform: scale(0.6); opacity: 0.4; }
+  50%       { transform: scale(1);   opacity: 1; }
+}
+
+/* --- Ring spinner --- */
+.spinner-ring {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  vertical-align: middle;
+}
+
+.spinner-ring::before,
+.spinner-ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid transparent;
+}
+
+.spinner-ring::before {
+  border-top-color: currentColor;
+  animation: spinner-border 1s linear infinite;
+}
+
+.spinner-ring::after {
+  border-bottom-color: currentColor;
+  opacity: 0.35;
+  animation: spinner-border 1.5s linear infinite reverse;
+}
+
+/* --- Sizes --- */
+.spinner-sm { width: 1rem;  height: 1rem;  border-width: 0.15em; }
+.spinner-lg { width: 3rem;  height: 3rem;  border-width: 0.3em; }
+.spinner-xl { width: 4.5rem; height: 4.5rem; border-width: 0.4em; }
+
+/* --- Colours --- */
+.spinner-primary  { color: var(--accent); }
+.spinner-success  { color: #22c55e; }
+.spinner-danger   { color: #ef4444; }
+.spinner-warning  { color: #eab308; }
+.spinner-info     { color: #06b6d4; }
+.spinner-light    { color: var(--text-muted); }
+.spinner-white    { color: #ffffff; }
+
+/* --- Overlay spinner --- */
+.spinner-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: inherit;
+  z-index: 10;
+}

@@ -1,0 +1,107 @@
+/* ==========================================================================
+   PROGRESS COMPONENT
+   Classes: .progress, .progress-bar, .progress-bar-striped,
+            .progress-bar-animated, .progress-sm, .progress-lg,
+            .progress-bar-primary, .progress-bar-success, .progress-bar-danger,
+            .progress-bar-warning, .progress-bar-info, .progress-label
+   ========================================================================== */
+
+.progress {
+  display: flex;
+  height: 8px;
+  background: rgba(180, 180, 210, 0.15);
+  border-radius: 100px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.progress-sm { height: 4px; }
+.progress-lg { height: 14px; }
+.progress-xl { height: 20px; }
+
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  background: var(--accent);
+  border-radius: 100px;
+  transition: width 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+/* Colour variants */
+.progress-bar-primary { background: #6366f1; }
+.progress-bar-success { background: #22c55e; }
+.progress-bar-danger  { background: #ef4444; }
+.progress-bar-warning { background: #eab308; }
+.progress-bar-info    { background: #06b6d4; }
+
+/* Gradient */
+.progress-bar-gradient {
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+  background-size: 200% 100%;
+}
+
+/* Striped */
+.progress-bar-striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255,255,255,0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255,255,255,0.15) 50%,
+    rgba(255,255,255,0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+/* Animated */
+.progress-bar-animated {
+  animation: progress-stripe 0.8s linear infinite;
+}
+
+@keyframes progress-stripe {
+  to { background-position: 1rem 0; }
+}
+
+/* Label */
+.progress-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.progress-label-value {
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+/* Stacked progress */
+.progress-stacked .progress {
+  border-radius: 100px;
+  overflow: visible;
+}
+
+.progress-stacked .progress-bar {
+  border-radius: 0;
+}
+
+.progress-stacked .progress-bar:first-child {
+  border-radius: 100px 0 0 100px;
+}
+
+.progress-stacked .progress-bar:last-child {
+  border-radius: 0 100px 100px 0;
+}

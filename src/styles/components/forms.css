@@ -1,0 +1,104 @@
+/* ==========================================================================
+   FORMS COMPONENT
+   ========================================================================== */
+
+.form-group { margin-bottom: 0.75rem; }
+
+.form-label {
+  display: block; margin-bottom: 0.5rem;
+  font-weight: 500; font-size: 0.875rem; color: var(--text-color);
+}
+
+.form-control {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(200, 200, 220, 0.3);
+  color: var(--text-color);
+  padding: 0.65rem 1rem; border-radius: 8px;
+  font-family: inherit; font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.18);
+}
+
+.form-control::placeholder { color: var(--text-muted); opacity: 0.7; }
+.form-control option { background: var(--bg-color); color: var(--text-color); }
+
+.form-text { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem; display: block; }
+
+.form-check {
+  display: flex; align-items: center;
+  gap: 0.5rem; cursor: pointer;
+}
+
+.form-check-input {
+  accent-color: var(--accent);
+  width: 16px; height: 16px; cursor: pointer;
+}
+
+.input-group { position: relative; }
+
+.input-group .input-icon {
+  position: absolute; left: 12px; top: 50%;
+  transform: translateY(-50%); color: var(--text-muted);
+  pointer-events: none; transition: color 0.2s;
+  width: 18px; height: 18px;
+}
+
+.input-group .form-control { padding-left: 42px; }
+.input-group:focus-within .input-icon { color: var(--accent); }
+
+.input-group-end .input-icon { left: auto; right: 12px; }
+.input-group-end .form-control { padding-left: 1rem; padding-right: 42px; }
+
+/* Switch Toggle Component */
+.form-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.form-switch-input {
+  appearance: none;
+  width: 40px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid var(--glass-border);
+  transition: var(--transition);
+}
+
+[data-theme="dark"] .form-switch-input {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.form-switch-input::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  transition: var(--transition);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form-switch-input:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.form-switch-input:checked::after {
+  transform: translateX(18px);
+}

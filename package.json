@@ -1,0 +1,49 @@
+{
+  "name": "aura-ui",
+  "version": "1.0.0",
+  "description": "A modern glassmorphism component library built with React",
+  "type": "module",
+  "main": "./dist/aura-ui.umd.cjs",
+  "module": "./dist/aura-ui.js",
+  "exports": {
+    ".": {
+      "import": "./dist/aura-ui.js",
+      "require": "./dist/aura-ui.umd.cjs",
+      "style": "./dist/style.css"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:lib": "cross-env BUILD_MODE=lib vite build",
+    "build:showcase": "vite build",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "react-router-dom": "^7.14.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "cross-env": "^10.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^5.4.11"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "react",
+    "ui",
+    "glassmorphism",
+    "components"
+  ],
+  "author": "devadigax",
+  "license": "MIT"
+}

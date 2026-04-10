@@ -1,0 +1,57 @@
+/* ============================================================
+   SHOWCASE-SPECIFIC STYLES
+   Theme-aware styles for the component documentation pages
+   ============================================================ */
+
+/* Code block used in every "Usage" section */
+.code-block {
+  background: rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  font-family: 'Courier New', 'Fira Code', monospace;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+[data-theme="dark"] .code-block {
+  background: rgba(0, 0, 0, 0.35);
+  color: #c4b5fd;
+}
+
+/* keyword / comment tints inside code blocks */
+.code-block .cb-comment  { color: var(--text-muted); }
+.code-block .cb-string   { color: #86efac; }
+.code-block .cb-keyword  { color: #93c5fd; }
+
+/* Page header badge row */
+.page-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* Section sub-headings inside pages */
+.section-label {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+}
+
+/* Demo container — slight inset look */
+.demo-box {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+[data-theme="dark"] .demo-box {
+  background: rgba(255, 255, 255, 0.03);
+}

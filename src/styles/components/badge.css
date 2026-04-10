@@ -1,0 +1,98 @@
+/* ==========================================================================
+   BADGE COMPONENT
+   Classes: .badge, .badge-primary, .badge-secondary, .badge-success,
+            .badge-danger, .badge-warning, .badge-info, .badge-light, .badge-dark
+            .badge-pill, .badge-dot
+   ========================================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.25em 0.6em;
+  font-size: 0.75em;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 6px;
+  white-space: nowrap;
+  vertical-align: middle;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* Pill shape */
+.badge-pill {
+  border-radius: 100px;
+  padding: 0.3em 0.75em;
+}
+
+/* Dot indicator */
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+/* Colour variants */
+.badge-primary {
+  background: rgba(99, 102, 241, 0.15);
+  color: #818cf8;
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.badge-secondary {
+  background: rgba(100, 116, 139, 0.15);
+  color: #94a3b8;
+  border-color: rgba(100, 116, 139, 0.3);
+}
+
+.badge-success {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.badge-danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.badge-warning {
+  background: rgba(234, 179, 8, 0.15);
+  color: #facc15;
+  border-color: rgba(234, 179, 8, 0.3);
+}
+
+.badge-info {
+  background: rgba(6, 182, 212, 0.15);
+  color: #22d3ee;
+  border-color: rgba(6, 182, 212, 0.3);
+}
+
+.badge-light {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-color);
+  border-color: var(--glass-border);
+}
+
+.badge-dark {
+  background: rgba(15, 23, 42, 0.6);
+  color: #e2e8f0;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Solid filled variants */
+.badge-solid-primary  { background: #6366f1; color: #fff; border-color: #6366f1; }
+.badge-solid-success  { background: #22c55e; color: #fff; border-color: #22c55e; }
+.badge-solid-danger   { background: #ef4444; color: #fff; border-color: #ef4444; }
+.badge-solid-warning  { background: #eab308; color: #fff; border-color: #eab308; }
+.badge-solid-info     { background: #06b6d4; color: #fff; border-color: #06b6d4; }

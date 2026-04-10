@@ -1,0 +1,103 @@
+/* ==========================================================================
+   ACCORDION COMPONENT
+   Classes: .accordion, .accordion-item, .accordion-header, .accordion-btn,
+            .accordion-collapse, .accordion-body
+   ========================================================================== */
+
+.accordion {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.accordion-item {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  transition: background 0.3s ease;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-header {
+  margin: 0;
+}
+
+.accordion-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s ease, background 0.2s ease;
+  gap: 0.5rem;
+}
+
+.accordion-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--accent);
+}
+
+.accordion-btn:not(.collapsed) {
+  color: var(--accent);
+  background: rgba(99, 102, 241, 0.06);
+}
+
+.accordion-btn .accordion-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-btn:not(.collapsed) .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-collapse.show {
+  max-height: 500px;
+}
+
+.accordion-body {
+  padding: 0.5rem 1.25rem 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* Flush variant */
+.accordion-flush .accordion-item {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  background: transparent;
+}
+
+.accordion-flush {
+  border: none;
+  border-radius: 0;
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+}

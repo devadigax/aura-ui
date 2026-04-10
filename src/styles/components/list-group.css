@@ -1,0 +1,133 @@
+/* ==========================================================================
+   LIST GROUP COMPONENT
+   Classes: .list-group, .list-group-item, .list-group-item-action,
+            .list-group-flush, .list-group-numbered, .list-group-horizontal
+            .list-group-item-primary, .list-group-item-success, etc.
+   ========================================================================== */
+
+.list-group {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+}
+
+.list-group-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1.1rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: var(--text-color);
+  border-bottom: 1px solid var(--glass-border);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  transition: background 0.2s ease;
+  position: relative;
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+/* Action variant (links, buttons) */
+.list-group-item-action {
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+}
+
+.list-group-item-action:hover {
+  background: rgba(99, 102, 241, 0.07);
+}
+
+.list-group-item-action.active,
+.list-group-item.active {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--accent);
+  font-weight: 600;
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.list-group-item-action.active::before,
+.list-group-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Flush (no outer border) */
+.list-group-flush {
+  border: none;
+  border-radius: 0;
+}
+
+.list-group-flush .list-group-item {
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+
+/* Numbered */
+.list-group-numbered {
+  counter-reset: section;
+}
+
+.list-group-numbered .list-group-item::before {
+  content: counter(section);
+  counter-increment: section;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Horizontal */
+.list-group-horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.list-group-horizontal .list-group-item {
+  border-bottom: none;
+  border-right: 1px solid var(--glass-border);
+  flex: 1 1 auto;
+}
+
+.list-group-horizontal .list-group-item:last-child {
+  border-right: none;
+}
+
+/* Colour variants */
+.list-group-item-primary  { --list-color: #818cf8; --list-bg: rgba(99,102,241,0.1); }
+.list-group-item-success  { --list-color: #4ade80; --list-bg: rgba(34,197,94,0.1); }
+.list-group-item-danger   { --list-color: #f87171; --list-bg: rgba(239,68,68,0.1); }
+.list-group-item-warning  { --list-color: #facc15; --list-bg: rgba(234,179,8,0.1); }
+.list-group-item-info     { --list-color: #22d3ee; --list-bg: rgba(6,182,212,0.1); }
+
+.list-group-item-primary,
+.list-group-item-success,
+.list-group-item-danger,
+.list-group-item-warning,
+.list-group-item-info {
+  background: var(--list-bg);
+  color: var(--list-color);
+}

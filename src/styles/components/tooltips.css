@@ -1,0 +1,145 @@
+/* ==========================================================================
+   TOOLTIPS COMPONENT
+   Classes: .tooltip, .tooltip-top, .tooltip-bottom, .tooltip-start, .tooltip-end,
+            .tooltip-arrow, .tooltip-inner, .tooltip-trigger
+   ========================================================================== */
+
+/* --- Trigger wrapper --- */
+.tooltip-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* --- Tooltip box --- */
+.tooltip {
+  position: absolute;
+  z-index: 1070;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.tooltip-inner {
+  padding: 0.4rem 0.75rem;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #e2e8f0;
+  font-size: 0.78rem;
+  font-weight: 500;
+  border-radius: 6px;
+  line-height: 1.4;
+  max-width: 220px;
+  white-space: normal;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .tooltip-inner {
+  background: rgba(30, 41, 59, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Arrow --- */
+.tooltip-arrow {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(15, 23, 42, 0.92);
+  transform: rotate(45deg);
+}
+
+[data-theme="dark"] .tooltip-arrow {
+  background: rgba(30, 41, 59, 0.95);
+}
+
+/* --- Positions --- */
+.tooltip-top {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+}
+
+.tooltip-top.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltip-top .tooltip-arrow {
+  top: 100%;
+  left: 50%;
+  margin-left: -4px;
+  margin-top: -4px;
+}
+
+.tooltip-bottom {
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.tooltip-bottom.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltip-bottom .tooltip-arrow {
+  bottom: 100%;
+  left: 50%;
+  margin-left: -4px;
+  margin-bottom: -4px;
+}
+
+.tooltip-start {
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%) translateX(4px);
+}
+
+.tooltip-start.show {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.tooltip-end {
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%) translateX(-4px);
+}
+
+.tooltip-end.show {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* CSS-only tooltip via data-tooltip attribute */
+[data-tooltip] {
+  position: relative;
+  cursor: default;
+  overflow: visible !important;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  padding: 0.35rem 0.65rem;
+  background: rgba(15, 23, 42, 0.92);
+  color: #e2e8f0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 1070;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
