@@ -30,7 +30,10 @@ export default defineConfig({
         // ── SHOWCASE BUILD (npm run build) ──
         outDir: 'dist-showcase',
         rollupOptions: {
-          input: resolve(__dirname, 'index.html'),
+          input: {
+            main: resolve(__dirname, 'index.html'),
+            showcase: resolve(__dirname, 'showcase.html'),
+          },
         },
       },
 });

@@ -7,36 +7,37 @@ export default function ButtonsPage() {
     <div>
       <PageHeader
         title="Buttons"
-        subtitle="Solid, outline, ghost, loading, icon, and size variants — all powered by .btn class utilities."
+        subtitle="React button wrapper with solid, outline, ghost, loading, and size variants."
         cssFile="button.css"
       />
 
-      {/* Solid */}
       <section className="glass p-4 mb-4">
         <h2 className="fw-semibold mb-1" style={{ fontSize: '1.1rem' }}>Solid Variants</h2>
-        <p className="text-muted mb-3">Use <code>variant</code> prop to select colour.</p>
+        <p className="text-muted mb-3">Use <code>variant</code> to select the button style.</p>
         <div className="hstack gap-2 flex-wrap">
-          {['primary','secondary','success','danger','warning','info','light','dark','ghost'].map(v => (
-            <Button key={v} variant={v} id={`btn-${v}`}>{v.charAt(0).toUpperCase()+v.slice(1)}</Button>
+          {['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'ghost'].map((variant) => (
+            <Button key={variant} variant={variant} id={`btn-${variant}`}>
+              {variant.charAt(0).toUpperCase() + variant.slice(1)}
+            </Button>
           ))}
         </div>
       </section>
 
-      {/* Outline */}
       <section className="glass p-4 mb-4">
         <h2 className="fw-semibold mb-1" style={{ fontSize: '1.1rem' }}>Outline Variants</h2>
-        <p className="text-muted mb-3">Prefix variant with <code>outline-</code>.</p>
+        <p className="text-muted mb-3">Prefix the variant with <code>outline-</code>.</p>
         <div className="hstack gap-2 flex-wrap">
-          {['primary','secondary','success','danger','warning','info'].map(v => (
-            <Button key={v} variant={`outline-${v}`} id={`btn-outline-${v}`}>{v.charAt(0).toUpperCase()+v.slice(1)}</Button>
+          {['primary', 'secondary', 'success', 'danger', 'warning', 'info'].map((variant) => (
+            <Button key={variant} variant={`outline-${variant}`} id={`btn-outline-${variant}`}>
+              {variant.charAt(0).toUpperCase() + variant.slice(1)}
+            </Button>
           ))}
         </div>
       </section>
 
-      {/* Sizes */}
       <section className="glass p-4 mb-4">
         <h2 className="fw-semibold mb-1" style={{ fontSize: '1.1rem' }}>Sizes</h2>
-        <p className="text-muted mb-3">Use <code>size</code> prop: <code>sm</code>, <code>default</code>, <code>lg</code>.</p>
+        <p className="text-muted mb-3">Use <code>size</code> with <code>sm</code> or <code>lg</code>.</p>
         <div className="hstack gap-2 align-items-center flex-wrap">
           <Button variant="primary" size="sm" id="btn-sm">Small</Button>
           <Button variant="primary" id="btn-default">Default</Button>
@@ -44,10 +45,9 @@ export default function ButtonsPage() {
         </div>
       </section>
 
-      {/* States */}
       <section className="glass p-4 mb-4">
         <h2 className="fw-semibold mb-1" style={{ fontSize: '1.1rem' }}>States</h2>
-        <p className="text-muted mb-3">Loading spinner and disabled state.</p>
+        <p className="text-muted mb-3">Loading and disabled states are built into the wrapper.</p>
         <div className="hstack gap-2 flex-wrap">
           <Button variant="primary" loading id="btn-loading">Loading</Button>
           <Button variant="primary" disabled id="btn-disabled">Disabled</Button>
@@ -55,19 +55,17 @@ export default function ButtonsPage() {
         </div>
       </section>
 
-      {/* Close button */}
       <section className="glass p-4 mb-4">
         <h2 className="fw-semibold mb-1" style={{ fontSize: '1.1rem' }}>Close Button</h2>
-        <p className="text-muted mb-3">Use <code>className="btn-close"</code> for a dismiss ×.</p>
+        <p className="text-muted mb-3">Use <code>className="btn-close"</code> for a dismiss control.</p>
         <button className="btn-close" aria-label="Close" id="btn-close">
-          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
         </button>
       </section>
 
-      {/* Button Groups */}
       <section className="glass p-4 mb-4">
         <h2 className="fw-semibold mb-1" style={{ fontSize: '1.1rem' }}>Button Groups</h2>
-        <p className="text-muted mb-3">Use raw <code>.btn-group</code> or <code>.btn-group-vertical</code> wrapper.</p>
+        <p className="text-muted mb-3">Use raw <code>.btn-group</code> or <code>.btn-group-vertical</code> wrappers for grouped layouts.</p>
         <div className="vstack gap-3">
           <div className="btn-group" id="btn-group-horizontal">
             <button className="btn btn-secondary active">Left</button>
@@ -75,26 +73,24 @@ export default function ButtonsPage() {
             <button className="btn btn-secondary">Right</button>
           </div>
           <div className="btn-group btn-group-sm" id="btn-group-time">
-            {['Day','Week','Month','Year'].map(l => (
-              <button key={l} className={`btn btn-outline-primary${l==='Day'?' active':''}`}>{l}</button>
+            {['Day', 'Week', 'Month', 'Year'].map((label) => (
+              <button key={label} className={`btn btn-outline-primary${label === 'Day' ? ' active' : ''}`}>{label}</button>
             ))}
           </div>
           <div className="btn-group-vertical" style={{ width: 120 }} id="btn-group-vertical">
-            {['Top','Middle','Bottom'].map(l => (
-              <button key={l} className="btn btn-secondary">{l}</button>
+            {['Top', 'Middle', 'Bottom'].map((label) => (
+              <button key={label} className="btn btn-secondary">{label}</button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Usage */}
       <section className="glass p-4 mb-4">
         <h2 className="fw-semibold mb-2" style={{ fontSize: '1.1rem' }}>Usage</h2>
-        <div style={{ background: 'rgba(0,0,0,0.25)', borderRadius: 10, padding: '1rem 1.25rem', fontFamily: 'monospace', fontSize: '0.82rem', color: '#c4b5fd', overflowX: 'auto' }}>
-          {`import { Button } from 'aura-ui';\n\n<Button variant="primary" size="lg">Click me</Button>\n<Button variant="outline-danger" loading>Submitting…</Button>\n<Button variant="secondary" disabled>Disabled</Button>`}
+        <div className="code-block">
+          {`import { Button } from 'aura-ui';\n\n<Button variant="primary" size="lg">Get Started</Button>\n<Button variant="outline-primary">Learn More</Button>\n<Button variant="success" loading>Saving...</Button>\n<Button variant="secondary" disabled>Disabled</Button>`}
         </div>
       </section>
     </div>
   );
 }
-

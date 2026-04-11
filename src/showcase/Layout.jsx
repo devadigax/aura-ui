@@ -105,7 +105,7 @@ export default function Layout({ children }) {
               >AU</div>
               <div className="user-info">
                 <span className="user-name">Aura UI</span>
-                <span className="user-role">v1.0 React Library</span>
+                <span className="user-role">v2.0 React Library</span>
               </div>
             </div>
             <button className="theme-toggle" onClick={toggleTheme}>

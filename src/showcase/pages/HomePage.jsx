@@ -50,7 +50,7 @@ export default function HomePage() {
           <Link to="/components/buttons">
             <Button variant="primary" size="lg">Explore Components</Button>
           </Link>
-          <a href="https://github.com" target="_blank" rel="noreferrer">
+          <a href="https://github.com/devadigax/aura-ui" target="_blank" rel="noreferrer">
             <Button variant="outline-primary" size="lg">GitHub →</Button>
           </a>
         </div>

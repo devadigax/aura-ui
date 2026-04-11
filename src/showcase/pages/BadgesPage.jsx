@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '../PageHeader';
+import { Badge } from '../../index';
 
 export default function BadgesPage() {
   return (
@@ -7,50 +8,55 @@ export default function BadgesPage() {
       <PageHeader title="Badges" subtitle="Compact badges, pills, dots, and solid colour variants." cssFile="badge.css" />
 
       <section className="glass p-4 mb-4">
-        <h2 className="fw-semibold mb-3" style={{ fontSize:'1.1rem' }}>Default Badges</h2>
+        <h2 className="fw-semibold mb-3" style={{ fontSize: '1.1rem' }}>Default Badges</h2>
         <div className="badge-group">
-          {['primary','secondary','success','danger','warning','info','light','dark'].map(v => (
-            <span key={v} className={`badge badge-${v}`} id={`badge-${v}`}>{v.charAt(0).toUpperCase()+v.slice(1)}</span>
+          {['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'].map((variant) => (
+            <Badge key={variant} variant={variant} id={`badge-${variant}`}>
+              {variant.charAt(0).toUpperCase() + variant.slice(1)}
+            </Badge>
           ))}
         </div>
       </section>
 
       <section className="glass p-4 mb-4">
-        <h2 className="fw-semibold mb-3" style={{ fontSize:'1.1rem' }}>Pill Badges</h2>
+        <h2 className="fw-semibold mb-3" style={{ fontSize: '1.1rem' }}>Pill Badges</h2>
         <div className="badge-group">
-          {['primary','success','danger','warning','info'].map(v => (
-            <span key={v} className={`badge badge-${v} badge-pill`} id={`badge-pill-${v}`}>{v.charAt(0).toUpperCase()+v.slice(1)}</span>
+          {['primary', 'success', 'danger', 'warning', 'info'].map((variant) => (
+            <Badge key={variant} variant={variant} pill id={`badge-pill-${variant}`}>
+              {variant.charAt(0).toUpperCase() + variant.slice(1)}
+            </Badge>
           ))}
-          <span className="badge badge-warning badge-pill">12</span>
-          <span className="badge badge-info badge-pill">99+</span>
+          <Badge variant="warning" pill>12</Badge>
+          <Badge variant="info" pill>99+</Badge>
         </div>
       </section>
 
       <section className="glass p-4 mb-4">
-        <h2 className="fw-semibold mb-3" style={{ fontSize:'1.1rem' }}>Solid Badges</h2>
+        <h2 className="fw-semibold mb-3" style={{ fontSize: '1.1rem' }}>Solid Badges</h2>
         <div className="badge-group">
-          {['primary','success','danger','warning'].map(v => (
-            <span key={v} className={`badge badge-solid-${v}`} id={`badge-solid-${v}`}>Solid {v.charAt(0).toUpperCase()+v.slice(1)}</span>
+          {['primary', 'success', 'danger', 'warning'].map((variant) => (
+            <Badge key={variant} variant={variant} solid id={`badge-solid-${variant}`}>
+              Solid {variant.charAt(0).toUpperCase() + variant.slice(1)}
+            </Badge>
           ))}
         </div>
       </section>
 
       <section className="glass p-4 mb-4">
-        <h2 className="fw-semibold mb-3" style={{ fontSize:'1.1rem' }}>Dot Indicators</h2>
+        <h2 className="fw-semibold mb-3" style={{ fontSize: '1.1rem' }}>Dot Indicators</h2>
         <div className="badge-group align-items-center" style={{ gap: '1rem' }}>
-          {['danger','success','warning','primary'].map(v => (
-            <span key={v} className={`badge badge-dot badge-${v}`} id={`badge-dot-${v}`} />
+          {['danger', 'success', 'warning', 'primary'].map((variant) => (
+            <Badge key={variant} variant={variant} dot id={`badge-dot-${variant}`} />
           ))}
         </div>
       </section>
 
       <section className="glass p-4 mb-4">
-        <h2 className="fw-semibold mb-2" style={{ fontSize:'1.1rem' }}>Usage</h2>
+        <h2 className="fw-semibold mb-2" style={{ fontSize: '1.1rem' }}>Usage</h2>
         <div className="code-block">
-          {`<span class="badge badge-primary">Default</span>\n<span class="badge badge-success badge-pill">Pill</span>\n<span class="badge badge-solid-danger">Solid</span>\n<span class="badge badge-dot badge-warning"></span>`}
+          {`import { Badge } from 'aura-ui';\n\n<Badge variant="primary">Default</Badge>\n<Badge variant="success" pill>Pill</Badge>\n<Badge variant="danger" solid>Solid</Badge>`}
         </div>
       </section>
     </div>
   );
 }
-

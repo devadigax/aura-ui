@@ -1,6 +1,6 @@
 {
   "name": "aura-ui",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A modern glassmorphism component library built with React",
   "type": "module",
   "main": "./dist/aura-ui.umd.cjs",
