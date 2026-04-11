@@ -5,7 +5,9 @@ import { Button, Card } from '../../index';
 const components = [
   { slug: 'buttons',      label: 'Buttons',       desc: 'Solid, outline, ghost, icon, size & loading variants.',        color: '#6366f1' },
   { slug: 'cards',        label: 'Cards',          desc: 'Composable glass cards with header, body, and footer.',         color: '#a855f7' },
+  { slug: 'carousel',     label: 'Carousel',       desc: 'Sliding and fading carousel with indicators and controls.',     color: '#14b8a6' },
   { slug: 'modals',       label: 'Modals',         desc: 'Accessible dialogs with size variants and scroll lock.',        color: '#ec4899' },
+  { slug: 'offcanvas',    label: 'Offcanvas',      desc: 'Edge-mounted panels for navigation, filters, and drawers.',    color: '#f97316' },
   { slug: 'alerts',       label: 'Alerts',         desc: 'Contextual alert messages with dismissal support.',             color: '#22c55e' },
   { slug: 'badges',       label: 'Badges',         desc: 'Compact badges, pills, dots and solid variants.',               color: '#eab308' },
   { slug: 'forms',        label: 'Forms',          desc: 'Inputs, selects, checkboxes, switches, and input groups.',      color: '#06b6d4' },
@@ -19,7 +21,9 @@ const components = [
   { slug: 'list-group',   label: 'List Group',     desc: 'Default, numbered, and action-enabled list groups.',            color: '#ec4899' },
   { slug: 'pagination',   label: 'Pagination',     desc: 'Page navigation with pill and size variants.',                  color: '#22c55e' },
   { slug: 'breadcrumb',   label: 'Breadcrumb',     desc: 'Hierarchical breadcrumb navigation with chevron dividers.',     color: '#eab308' },
+  { slug: 'helpers',      label: 'Helpers',        desc: 'Utility classes for ratios, links, truncation, spacing, and more.', color: '#0ea5e9' },
   { slug: 'placeholders', label: 'Placeholders',   desc: 'Skeleton loading states with shimmer and wave animations.',     color: '#06b6d4' },
+  { slug: 'sidebar',      label: 'Sidebar',        desc: 'Glass sidebar wrapper with brand, nav sections, and footer.',   color: '#8b5cf6' },
   { slug: 'tooltips',     label: 'Tooltips',       desc: 'CSS-only directional tooltip hints on any element.',            color: '#f97316' },
 ];
 
@@ -29,7 +33,7 @@ export default function HomePage() {
       {/* Hero */}
       <header className="glass page-header mb-5" style={{ padding: '4rem 2.5rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div className="badge-group justify-content-center mb-3">
-          <span className="badge badge-primary badge-pill">v1.0</span>
+          <span className="badge badge-primary badge-pill">v2.0</span>
           <span className="badge badge-success badge-pill">Open Source</span>
           <span className="badge badge-info badge-pill">React</span>
         </div>
@@ -57,7 +61,7 @@ export default function HomePage() {
 
         {/* Stats row */}
         <div className="hstack gap-4 justify-content-center flex-wrap mt-5" style={{ borderTop: '1px solid var(--glass-border)', paddingTop: '2rem' }}>
-          {[['18+', 'Components'], ['0', 'Dependencies'], ['100%', 'CSS Custom Props'], ['Dark', 'Mode Ready']].map(([val, lbl]) => (
+          {[['22+', 'Components'], ['0', 'Dependencies'], ['100%', 'CSS Custom Props'], ['Dark', 'Mode Ready']].map(([val, lbl]) => (
             <div key={lbl} style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--accent)' }}>{val}</div>
               <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{lbl}</div>
@@ -71,10 +75,10 @@ export default function HomePage() {
         <h2 className="fw-bold mb-3" style={{ fontSize: '1.1rem' }}>Quick Start</h2>
         <div className="code-block" style={{ fontSize: '0.875rem' }}>
           <span className="cb-comment"># Install</span>{'\n'}
-          npm install aura-ui{'\n\n'}
+          npm install @devadigax/aura-ui{'\n\n'}
           <span className="cb-comment"># Import</span>{'\n'}
-          {'import { Button, Card, Modal } from '}<span className="cb-string">'aura-ui'</span>;{'\n'}
-          {'import '}<span className="cb-string">'aura-ui/style.css'</span>;
+          {'import { Button, Card, Modal } from '}<span className="cb-string">'@devadigax/aura-ui'</span>;{'\n'}
+          {'import '}<span className="cb-string">'@devadigax/aura-ui/style.css'</span>;
         </div>
       </section>
 

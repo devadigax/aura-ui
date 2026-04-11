@@ -2,7 +2,9 @@ import './styles/glass.css';
 
 export { default as Button } from './components/Button/Button';
 export { default as Card } from './components/Card/Card';
+export { default as Carousel } from './components/Carousel/Carousel';
 export { default as Modal } from './components/Modal/Modal';
+export { default as Offcanvas } from './components/Offcanvas/Offcanvas';
 export { default as Alert } from './components/Alert/Alert';
 export { default as Badge } from './components/Badge/Badge';
 export { default as Breadcrumb } from './components/Breadcrumb/Breadcrumb';
@@ -27,6 +29,7 @@ export { default as Pagination } from './components/Pagination/Pagination';
 export { default as Placeholder } from './components/Placeholder/Placeholder';
 export { default as Progress } from './components/Progress/Progress';
 export { default as Spinner } from './components/Spinner/Spinner';
+export { default as Sidebar } from './components/Sidebar/Sidebar';
 export { default as Table } from './components/Table/Table';
 export { default as Toast, ToastContainer } from './components/Toast/Toast';
 export { default as Tooltip } from './components/Tooltip/Tooltip';
