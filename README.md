@@ -14,7 +14,7 @@ Aura UI is a glassmorphism-focused React component library with a built-in showc
 ## Installation
 
 ```bash
-npm install aura-ui
+npm i @devadigax/aura-ui
 ```
 
 Peer dependencies:
@@ -25,8 +25,8 @@ Peer dependencies:
 ## Quick Start
 
 ```jsx
-import { Button, Card, Alert } from 'aura-ui';
-import 'aura-ui/style.css';
+import { Alert, Button, Card } from '@devadigax/aura-ui';
+import '@devadigax/aura-ui/style.css';
 
 export default function Example() {
   return (
@@ -43,6 +43,12 @@ export default function Example() {
     </Card>
   );
 }
+```
+
+Install and use it in your app:
+
+```bash
+npm i @devadigax/aura-ui
 ```
 
 ## Available Exports
