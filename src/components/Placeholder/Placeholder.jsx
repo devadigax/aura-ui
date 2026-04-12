@@ -6,6 +6,7 @@ const Placeholder = React.forwardRef(({
   className,
   wave = false,
   card = false,
+  'aria-label': ariaLabel,
   children,
   ...props
 }, ref) => (
@@ -19,6 +20,9 @@ const Placeholder = React.forwardRef(({
       },
       className
     )}
+    aria-hidden={ariaLabel ? undefined : 'true'}
+    aria-label={ariaLabel}
+    aria-busy="true"
     {...props}
   >
     {children}

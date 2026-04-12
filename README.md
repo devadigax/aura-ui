@@ -47,10 +47,6 @@ export default function Example() {
 
 Install and use it in your app:
 
-```bash
-npm i @devadigax/aura-ui
-```
-
 ## Available Exports
 
 Current top-level exports include:
@@ -85,6 +81,9 @@ Current top-level exports include:
 - `Toast`
 - `ToastContainer`
 - `Tooltip`
+- `Carousel`
+- `Offcanvas`
+- `Popover`
 - `Nav`
 - `Navbar`
 
@@ -116,30 +115,25 @@ npm run preview
 
 ## Showcase And Netlify
 
-The repo builds two HTML entry points for the showcase:
-
-- `index.html`
-- `showcase.html`
-
-The showcase build output goes to `dist-showcase`.
+The showcase build output goes to `dist-showcase` (ignored by git).
 
 For Netlify:
 
 - Build command: `npm run build`
 - Publish directory: `dist-showcase`
 
-The repo also includes a `_redirects` file for SPA fallback behavior.
+The repo also includes a `public/_redirects` file for SPA fallback behavior.
 
 ## Project Structure
 
 ```text
 src/
-  components/        React wrappers
+  components/        React wrappers (21 components + Popover)
   showcase/          Showcase app and component demo pages
   styles/            Shared framework and component CSS
   index.js           Library export surface
 index.html           Showcase app entry
-showcase.html        Standalone showcase entry
+public/              Static assets and _redirects
 vite.config.js       Library/showcase build config
 ```
 

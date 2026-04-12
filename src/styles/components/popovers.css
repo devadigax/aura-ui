@@ -75,3 +75,9 @@
   position: relative;
   display: inline-block;
 }
+
+/* Outer wrapper — must be position:relative to anchor .popover absolutely */
+.popover-wrapper {
+  position: relative;
+  display: inline-block;
+}

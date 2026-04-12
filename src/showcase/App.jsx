@@ -25,6 +25,7 @@ import HelpersPage       from './pages/HelpersPage';
 import PlaceholdersPage  from './pages/PlaceholdersPage';
 import SidebarPage       from './pages/SidebarPage';
 import TooltipsPage      from './pages/TooltipsPage';
+import PopoverPage       from './pages/PopoverPage';
 
 export default function App() {
   return (
@@ -53,6 +54,7 @@ export default function App() {
         <Route path="/components/placeholders" element={<Layout><PlaceholdersPage /></Layout>} />
         <Route path="/components/sidebar"      element={<Layout><SidebarPage /></Layout>} />
         <Route path="/components/tooltips"     element={<Layout><TooltipsPage /></Layout>} />
+        <Route path="/components/popover"      element={<Layout><PopoverPage /></Layout>} />
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

@@ -10,6 +10,7 @@ export { default as Badge } from './components/Badge/Badge';
 export { default as Breadcrumb } from './components/Breadcrumb/Breadcrumb';
 export { default as Accordion, Collapse } from './components/Accordion/Accordion';
 export { default as Dropdown } from './components/Dropdown/Dropdown';
+export { default as Popover } from './components/Popover/Popover';
 export {
   FormGroup,
   FormLabel,

@@ -14,10 +14,13 @@ const Button = React.forwardRef(({
 }, ref) => {
   const isOutline = variant.startsWith('outline-');
   
+  const isNativeButton = Component === 'button' || Component === undefined;
+
   return (
     <Component
       ref={ref}
-      disabled={disabled || loading}
+      {...(isNativeButton && { disabled: disabled || loading })}
+      aria-disabled={disabled || loading || undefined}
       className={clsx(
         'btn',
         `btn-${variant}`,
@@ -25,7 +28,7 @@ const Button = React.forwardRef(({
           'btn-sm': size === 'sm',
           'btn-lg': size === 'lg',
           'btn-loading': loading,
-          'disabled': disabled
+          'disabled': disabled,
         },
         className
       )}

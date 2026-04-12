@@ -22,8 +22,10 @@ const AccordionItem = React.forwardRef(({
     <div ref={ref} className={clsx('accordion-item', className)} {...props}>
       <h3 className="accordion-header">
         <button
+          type="button"
           className={clsx('accordion-btn', { collapsed: !open })}
           onClick={() => setOpen((value) => !value)}
+          aria-expanded={open}
         >
           {title}
           <svg className="accordion-icon" viewBox="0 0 24 24">

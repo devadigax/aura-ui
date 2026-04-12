@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import './modal.css';
 
-const Modal = ({ isOpen, onClose, size, centered = true, scrollable = false, className, children }) => {
+const Modal = React.forwardRef(({ isOpen, onClose, size, centered = true, scrollable = false, titleId, className, children }, ref) => {
   // Handle escape key to close
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -36,6 +36,7 @@ const Modal = ({ isOpen, onClose, size, centered = true, scrollable = false, cla
         aria-hidden="true"
       />
       <div
+        ref={ref}
         className={clsx('modal', {
           show: isOpen,
           'modal-centered': centered,
@@ -44,6 +45,7 @@ const Modal = ({ isOpen, onClose, size, centered = true, scrollable = false, cla
         }, className)}
         role="dialog"
         aria-modal="true"
+        aria-labelledby={titleId}
       >
         <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
           <div className="modal-content">
@@ -53,7 +55,9 @@ const Modal = ({ isOpen, onClose, size, centered = true, scrollable = false, cla
       </div>
     </>
   );
-};
+});
+
+Modal.displayName = 'Modal';
 
 const ModalHeader = React.forwardRef(({ className, children, ...props }, ref) => (
   <div ref={ref} className={clsx('modal-header', className)} {...props}>

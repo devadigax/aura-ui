@@ -22,8 +22,8 @@ const Dropdown = React.forwardRef(({ className, children, defaultOpen = false, .
       }
     };
 
-    document.addEventListener('mousedown', handlePointerDown);
-    return () => document.removeEventListener('mousedown', handlePointerDown);
+    document.addEventListener('pointerdown', handlePointerDown);
+    return () => document.removeEventListener('pointerdown', handlePointerDown);
   }, []);
 
   const value = useMemo(() => ({ open, setOpen }), [open]);

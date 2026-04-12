@@ -25,10 +25,15 @@ const NAV_ITEMS = [
   { slug: 'placeholders', label: 'Placeholders', icon: <><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" /></> },
   { slug: 'sidebar', label: 'Sidebar', icon: <><rect x="3" y="4" width="6" height="16" rx="2" /><rect x="11" y="6" width="10" height="3" rx="1.5" /><rect x="11" y="11" width="8" height="3" rx="1.5" /><rect x="11" y="16" width="9" height="3" rx="1.5" /></> },
   { slug: 'tooltips', label: 'Tooltips', icon: <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> },
+  { slug: 'popover', label: 'Popover', icon: <><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /><line x1="9" y1="10" x2="15" y2="10" /><line x1="9" y1="14" x2="13" y2="14" /></> },
 ];
 
 export default function Layout({ children }) {
-  const [theme, setTheme] = useState(document.documentElement.getAttribute('data-theme') || 'light');
+  const [theme, setTheme] = useState(() =>
+    typeof document !== 'undefined'
+      ? (document.documentElement.getAttribute('data-theme') || 'light')
+      : 'light'
+  );
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const toggleTheme = () => {
@@ -67,7 +72,7 @@ export default function Layout({ children }) {
       <div className={`sidebar-overlay${mobileOpen ? ' active' : ''}`} onClick={() => setMobileOpen(false)} />
 
       <div className="dashboard-layout">
-        <Sidebar className={mobileOpen ? ' active' : ''} id="sidebar">
+        <Sidebar active={mobileOpen} id="sidebar">
           <Sidebar.Top>
             <Sidebar.Brand as={Link} to="/" onClick={() => setMobileOpen(false)}>
               <svg viewBox="0 0 40 40" width="40" height="40">
@@ -104,7 +109,7 @@ export default function Layout({ children }) {
               </div>
               <div className="user-info">
                 <span className="user-name">Aura UI</span>
-                <span className="user-role">v2.0 React Library</span>
+                <span className="user-role">v4.0 React Library</span>
               </div>
             </div>
             <button className="theme-toggle" onClick={toggleTheme}>

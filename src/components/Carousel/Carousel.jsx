@@ -26,8 +26,23 @@ const Carousel = React.forwardRef(({
   const prev = () => setActiveIndex((value) => (value - 1 + items.length) % items.length);
   const next = () => setActiveIndex((value) => (value + 1) % items.length);
 
+  // Keyboard navigation
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, []);
+
   return (
     <div ref={ref} className={clsx('carousel', { 'carousel-fade': fade }, className)} {...props}>
+      {/* Screen reader live region */}
+      <div aria-live="polite" aria-atomic="true" className="visually-hidden">
+        {`Slide ${activeIndex + 1} of ${items.length}`}
+      </div>
+
       <div
         className="carousel-inner"
         style={fade ? undefined : { transform: `translateX(-${activeIndex * 100}%)` }}
@@ -36,6 +51,7 @@ const Carousel = React.forwardRef(({
           <div
             key={item.id ?? index}
             className={clsx('carousel-item', { active: index === activeIndex })}
+            aria-hidden={index !== activeIndex}
           >
             {renderItem ? renderItem(item, index === activeIndex) : item}
           </div>
@@ -62,6 +78,7 @@ const Carousel = React.forwardRef(({
               className={clsx('carousel-indicator', { active: index === activeIndex })}
               onClick={() => setActiveIndex(index)}
               aria-label={`Go to slide ${index + 1}`}
+              aria-current={index === activeIndex}
             />
           ))}
         </div>
