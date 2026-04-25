@@ -34,13 +34,15 @@ const NAV_ITEMS = [
 const TEMPLATE_ITEMS = [
   { slug: 'home', label: 'Home Page', icon: <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /> },
   { slug: 'login', label: 'Login', icon: <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3" /> },
-  { slug: 'register', label: 'Register', icon: <><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></> },
-  { slug: 'create-form', label: 'Create Form', icon: <><polyline points="14 2 14 8 20 8"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M12 18v-6"/><path d="M9 15h6"/></> },
-  { slug: 'about', label: 'About Us', icon: <><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></> },
-  { slug: 'contact', label: 'Contact Us', icon: <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></> },
-  { slug: 'products', label: 'Products Grid', icon: <><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></> },
-  { slug: 'blog', label: 'Blog Page', icon: <><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></> },
-  { slug: 'dashboard', label: 'Admin Dashboard', icon: <><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></> },
+  { slug: 'register', label: 'Register', icon: <><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="8.5" cy="7" r="4" /><line x1="20" y1="8" x2="20" y2="14" /><line x1="23" y1="11" x2="17" y2="11" /></> },
+  { slug: 'create-form', label: 'Create Form', icon: <><polyline points="14 2 14 8 20 8" /><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M12 18v-6" /><path d="M9 15h6" /></> },
+  { slug: 'about', label: 'About Us', icon: <><circle cx="12" cy="12" r="10" /><path d="M12 16v-4" /><path d="M12 8h.01" /></> },
+  { slug: 'contact', label: 'Contact Us', icon: <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></> },
+  { slug: 'products', label: 'Products Grid', icon: <><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></> },
+  { slug: 'product-single', label: '↳ Product Detail', icon: <><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0" /></>, indent: true },
+  { slug: 'blog', label: 'Blog Page', icon: <><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></> },
+  { slug: 'blog-single', label: '↳ Blog Article', icon: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></>, indent: true },
+  { slug: 'dashboard', label: 'Admin Dashboard', icon: <><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><line x1="3" y1="9" x2="21" y2="9" /><line x1="9" y1="21" x2="9" y2="9" /></> },
 ];
 
 export default function Layout({ children }) {
@@ -61,6 +63,18 @@ export default function Layout({ children }) {
       localStorage.setItem('theme', 'light');
     }
     setTheme(next);
+  };
+
+  const [isCompact, setIsCompact] = useState(() =>
+    typeof window !== 'undefined' && localStorage.getItem('sidebar-compact') === 'true'
+  );
+
+  const toggleCompact = () => {
+    const next = !isCompact;
+    setIsCompact(next);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('sidebar-compact', next);
+    }
   };
 
   return (
@@ -86,17 +100,29 @@ export default function Layout({ children }) {
 
       <div className={`sidebar-overlay${mobileOpen ? ' active' : ''}`} onClick={() => setMobileOpen(false)} />
 
-      <div className="dashboard-layout">
+      <div className={`dashboard-layout ${isCompact ? 'layout-compact' : ''}`}>
         <Sidebar active={mobileOpen} id="sidebar">
           <Sidebar.Top>
-            <Sidebar.Brand as={Link} to="/" onClick={() => setMobileOpen(false)}>
-              <svg viewBox="0 0 40 40" width="40" height="40">
-                <circle cx="20" cy="20" r="20" fill="rgba(99,102,241,0.2)" />
-                <circle cx="20" cy="20" r="12" fill="none" stroke="#818cf8" strokeWidth="2.5" />
-                <circle cx="20" cy="20" r="4" fill="#818cf8" />
-              </svg>
-              <span>Aura UI</span>
-            </Sidebar.Brand>
+            <div className="d-flex align-items-center justify-content-between mb-4">
+              <Sidebar.Brand as={Link} to="/" onClick={() => setMobileOpen(false)} style={{ marginBottom: 0 }}>
+                <svg viewBox="0 0 40 40" width="40" height="40">
+                  <circle cx="20" cy="20" r="20" fill="rgba(99,102,241,0.2)" />
+                  <circle cx="20" cy="20" r="12" fill="none" stroke="#818cf8" strokeWidth="2.5" />
+                  <circle cx="20" cy="20" r="4" fill="#818cf8" />
+                </svg>
+                <span className="link-text">Aura UI</span>
+              </Sidebar.Brand>
+
+              <button
+                className="btn btn-sm btn-icon border-0 bg-transparent text-muted compact-toggle align-items-center justify-content-center p-1"
+                onClick={toggleCompact}
+                title={isCompact ? "Expand Sidebar" : "Collapse Sidebar"}
+              >
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+              </button>
+            </div>
 
             <Sidebar.Nav>
               <Sidebar.Section>Components</Sidebar.Section>
@@ -106,22 +132,25 @@ export default function Layout({ children }) {
                   to={`/components/${slug}`}
                   onClick={() => setMobileOpen(false)}
                   className={({ isActive }) => (isActive ? 'active' : '')}
+                  title={isCompact ? label : undefined}
                 >
                   <svg className="nav-icon" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" stroke="currentColor">{icon}</svg>
-                  {label}
+                  <span className="link-text">{label}</span>
                 </NavLink>
               ))}
 
               <Sidebar.Section className="mt-4">Templates</Sidebar.Section>
-              {TEMPLATE_ITEMS.map(({ slug, label, icon }) => (
+              {TEMPLATE_ITEMS.map(({ slug, label, icon, indent }) => (
                 <NavLink
                   key={slug}
                   to={`/templates/${slug}`}
                   onClick={() => setMobileOpen(false)}
                   className={({ isActive }) => (isActive ? 'active' : '')}
+                  title={isCompact ? label : undefined}
+                  style={indent ? { paddingLeft: isCompact ? undefined : '1.75rem', fontSize: '0.82rem', opacity: 0.8 } : undefined}
                 >
                   <svg className="nav-icon" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" stroke="currentColor">{icon}</svg>
-                  {label}
+                  <span className="link-text">{label}</span>
                 </NavLink>
               ))}
             </Sidebar.Nav>
@@ -132,21 +161,22 @@ export default function Layout({ children }) {
               <div
                 className="user-avatar"
                 style={{ background: 'linear-gradient(135deg,#6366f1,#a855f7)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 800, fontSize: '.8rem' }}
+                title={isCompact ? "Aura UI Profile" : undefined}
               >
                 AU
               </div>
               <div className="user-info">
                 <span className="user-name">Aura UI</span>
-                <span className="user-role">v4.0 React Library</span>
+                <span className="user-role">v4.2.0 React Library</span>
               </div>
             </div>
-            <button className="theme-toggle" onClick={toggleTheme}>
+            <button className="theme-toggle" onClick={toggleTheme} title={isCompact ? (theme === 'dark' ? 'Light Mode' : 'Dark Mode') : undefined}>
               <svg className="nav-icon" viewBox="0 0 24 24">
                 {theme === 'dark'
                   ? <><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></>
                   : <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />}
               </svg>
-              <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+              <span className="link-text">{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
             </button>
           </Sidebar.Footer>
         </Sidebar>

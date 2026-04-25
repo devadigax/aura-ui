@@ -66,7 +66,11 @@ export default function ProductsPage() {
 }
 `;
 
+import { useNavigate } from 'react-router-dom';
+
 export default function TemplateProducts() {
+  const navigate = useNavigate();
+
   return (
     <TemplateLayout title="Products Search & Grid" sourceCode={code}>
       <div>
@@ -98,7 +102,7 @@ export default function TemplateProducts() {
             { id: 5, name: 'USB-C Docking Station', price: '$89.00', img: 'USB-C-Docking-Station.jpg', badge: null },
             { id: 6, name: 'Ergonomic Mouse', price: '$59.00', img: 'Ergonomic-Mouse.jpg', badge: null },
           ].map(p => (
-            <Card key={p.id} glass className="h-100" style={{ overflow: 'hidden' }}>
+            <Card key={p.id} glass className="h-100" style={{ overflow: 'hidden', cursor: 'pointer' }} onClick={() => navigate('/templates/product-single')}>
               <div style={{ height: '200px', backgroundColor: 'rgba(0,0,0,0.05)', position: 'relative' }}>
                 <img src={`/templates/${p.img}`} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 {p.badge && (

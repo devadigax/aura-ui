@@ -1,5 +1,5 @@
-import React from 'react';
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Layout from './Layout';
 
 import HomePage          from './pages/HomePage';
@@ -36,14 +36,23 @@ import TemplateLogin      from './templates/TemplateLogin';
 import TemplateRegister   from './templates/TemplateRegister';
 import TemplateDashboard  from './templates/TemplateDashboard';
 import TemplateProducts   from './templates/TemplateProducts';
+import TemplateProductSingle from './templates/TemplateProductSingle';
 import TemplateCreateForm from './templates/TemplateCreateForm';
 import TemplateAbout      from './templates/TemplateAbout';
 import TemplateContact    from './templates/TemplateContact';
 import TemplateBlog       from './templates/TemplateBlog';
+import TemplateBlogSingle from './templates/TemplateBlogSingle';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo({ top: 0, behavior: 'instant' }); }, [pathname]);
+  return null;
+}
 
 export default function App() {
   return (
     <HashRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout><HomePage /></Layout>} />
         <Route path="/components/buttons"      element={<Layout><ButtonsPage /></Layout>} />
@@ -79,10 +88,12 @@ export default function App() {
         <Route path="/templates/register"      element={<Layout><TemplateRegister /></Layout>} />
         <Route path="/templates/dashboard"     element={<Layout><TemplateDashboard /></Layout>} />
         <Route path="/templates/products"      element={<Layout><TemplateProducts /></Layout>} />
+        <Route path="/templates/product-single" element={<Layout><TemplateProductSingle /></Layout>} />
         <Route path="/templates/create-form"   element={<Layout><TemplateCreateForm /></Layout>} />
         <Route path="/templates/about"         element={<Layout><TemplateAbout /></Layout>} />
         <Route path="/templates/contact"       element={<Layout><TemplateContact /></Layout>} />
         <Route path="/templates/blog"          element={<Layout><TemplateBlog /></Layout>} />
+        <Route path="/templates/blog-single"   element={<Layout><TemplateBlogSingle /></Layout>} />
         
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />

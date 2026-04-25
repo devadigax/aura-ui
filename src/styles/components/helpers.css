@@ -256,6 +256,17 @@
 .d-inline-flex  { display: inline-flex !important; }
 .d-grid     { display: grid !important; }
 
+/* Responsive display: show/hide at ≥768px */
+@media (min-width: 768px) {
+  .d-md-none         { display: none !important; }
+  .d-md-block        { display: block !important; }
+  .d-md-flex         { display: flex !important; }
+  .d-md-inline       { display: inline !important; }
+  .d-md-inline-block { display: inline-block !important; }
+  .d-md-inline-flex  { display: inline-flex !important; }
+  .d-md-grid         { display: grid !important; }
+}
+
 .invisible  { visibility: hidden !important; }
 .visible    { visibility: visible !important; }
 
