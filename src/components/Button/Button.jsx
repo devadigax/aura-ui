@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import './button.css';
 
@@ -9,12 +10,23 @@ const Button = React.forwardRef(({
   disabled = false,
   loading = false,
   className,
+  onClick,
   as: Component = 'button',
   ...props
 }, ref) => {
   const isOutline = variant.startsWith('outline-');
   
   const isNativeButton = Component === 'button' || Component === undefined;
+
+  const handleClick = (e) => {
+    if ((disabled || loading) && !isNativeButton) {
+      e.preventDefault();
+      return;
+    }
+    if (onClick) {
+      onClick(e);
+    }
+  };
 
   return (
     <Component
@@ -32,6 +44,7 @@ const Button = React.forwardRef(({
         },
         className
       )}
+      onClick={handleClick}
       {...props}
     >
       {loading && (
@@ -45,6 +58,17 @@ const Button = React.forwardRef(({
     </Component>
   );
 });
+
+Button.propTypes = {
+  children: PropTypes.node,
+  variant: PropTypes.string,
+  size: PropTypes.oneOf(['sm', 'default', 'lg']),
+  disabled: PropTypes.bool,
+  loading: PropTypes.bool,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+  as: PropTypes.elementType,
+};
 
 Button.displayName = 'Button';
 

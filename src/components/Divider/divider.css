@@ -1,0 +1,60 @@
+/* ==========================================================================
+   DIVIDER COMPONENT
+   ========================================================================== */
+
+.divider {
+  --divider-color: rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .divider {
+  --divider-color: rgba(255, 255, 255, 0.15);
+}
+
+.divider::before, 
+.divider::after {
+  content: '';
+  flex-grow: 1;
+  height: 1px;
+  background: var(--divider-color);
+}
+
+.divider-dashed::before,
+.divider-dashed::after {
+  background: transparent;
+  border-top: 1px dashed var(--divider-color);
+}
+
+/* Alignments */
+.divider-with-content.divider-center::before {
+  margin-right: 1rem;
+}
+.divider-with-content.divider-center::after {
+  margin-left: 1rem;
+}
+
+.divider-with-content.divider-start::before {
+  flex-grow: 0;
+  width: 20px;
+  margin-right: 1rem;
+}
+.divider-with-content.divider-start::after {
+  margin-left: 1rem;
+}
+
+.divider-with-content.divider-end::before {
+  margin-right: 1rem;
+}
+.divider-with-content.divider-end::after {
+  flex-grow: 0;
+  width: 20px;
+  margin-left: 1rem;
+}

@@ -1,8 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import { useScrollLock } from '../../hooks/useScrollLock';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 import './modal.css';
 
 const Modal = React.forwardRef(({ isOpen, onClose, size, centered = true, scrollable = false, titleId, className, children }, ref) => {
+  const internalRef = useRef(null);
+  
+  const setRefs = useCallback(
+    (node) => {
+      internalRef.current = node;
+      if (typeof ref === 'function') ref(node);
+      else if (ref) ref.current = node;
+    },
+    [ref]
+  );
+
+  useScrollLock(isOpen);
+  useFocusTrap(internalRef, isOpen);
+
   // Handle escape key to close
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -14,21 +32,9 @@ const Modal = React.forwardRef(({ isOpen, onClose, size, centered = true, scroll
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
-  // Handle body scroll locking
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
-
   if (!isOpen) return null;
 
-  return (
+  return ReactDOM.createPortal(
     <>
       <div 
         className={clsx('modal-backdrop', { show: isOpen })} 
@@ -36,7 +42,7 @@ const Modal = React.forwardRef(({ isOpen, onClose, size, centered = true, scroll
         aria-hidden="true"
       />
       <div
-        ref={ref}
+        ref={setRefs}
         className={clsx('modal', {
           show: isOpen,
           'modal-centered': centered,
@@ -53,9 +59,21 @@ const Modal = React.forwardRef(({ isOpen, onClose, size, centered = true, scroll
           </div>
         </div>
       </div>
-    </>
+    </>,
+    document.body
   );
 });
+
+Modal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func,
+  size: PropTypes.oneOf(['sm', 'lg', 'xl']),
+  centered: PropTypes.bool,
+  scrollable: PropTypes.bool,
+  titleId: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
 
 Modal.displayName = 'Modal';
 

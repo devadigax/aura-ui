@@ -26,6 +26,20 @@ import PlaceholdersPage  from './pages/PlaceholdersPage';
 import SidebarPage       from './pages/SidebarPage';
 import TooltipsPage      from './pages/TooltipsPage';
 import PopoverPage       from './pages/PopoverPage';
+import AvatarPage        from './pages/AvatarPage';
+import DividerPage       from './pages/DividerPage';
+import StepperPage       from './pages/StepperPage';
+
+// Templates
+import TemplateHome       from './templates/TemplateHome';
+import TemplateLogin      from './templates/TemplateLogin';
+import TemplateRegister   from './templates/TemplateRegister';
+import TemplateDashboard  from './templates/TemplateDashboard';
+import TemplateProducts   from './templates/TemplateProducts';
+import TemplateCreateForm from './templates/TemplateCreateForm';
+import TemplateAbout      from './templates/TemplateAbout';
+import TemplateContact    from './templates/TemplateContact';
+import TemplateBlog       from './templates/TemplateBlog';
 
 export default function App() {
   return (
@@ -55,6 +69,21 @@ export default function App() {
         <Route path="/components/sidebar"      element={<Layout><SidebarPage /></Layout>} />
         <Route path="/components/tooltips"     element={<Layout><TooltipsPage /></Layout>} />
         <Route path="/components/popover"      element={<Layout><PopoverPage /></Layout>} />
+        <Route path="/components/avatar"       element={<Layout><AvatarPage /></Layout>} />
+        <Route path="/components/divider"      element={<Layout><DividerPage /></Layout>} />
+        <Route path="/components/stepper"      element={<Layout><StepperPage /></Layout>} />
+        
+        {/* Templates */}
+        <Route path="/templates/home"          element={<Layout><TemplateHome /></Layout>} />
+        <Route path="/templates/login"         element={<Layout><TemplateLogin /></Layout>} />
+        <Route path="/templates/register"      element={<Layout><TemplateRegister /></Layout>} />
+        <Route path="/templates/dashboard"     element={<Layout><TemplateDashboard /></Layout>} />
+        <Route path="/templates/products"      element={<Layout><TemplateProducts /></Layout>} />
+        <Route path="/templates/create-form"   element={<Layout><TemplateCreateForm /></Layout>} />
+        <Route path="/templates/about"         element={<Layout><TemplateAbout /></Layout>} />
+        <Route path="/templates/contact"       element={<Layout><TemplateContact /></Layout>} />
+        <Route path="/templates/blog"          element={<Layout><TemplateBlog /></Layout>} />
+        
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

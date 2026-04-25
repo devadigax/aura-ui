@@ -242,16 +242,13 @@ img { max-width: 100%; height: auto; }
 }
 
 .main-content {
-  margin-left: calc(var(--sidebar-width) + 3rem);
   flex: 1;
-  padding: 1.5rem 1.5rem 1.5rem 0;
-  width: calc(100% - var(--sidebar-width) - 3rem);
+  width: 100%;
+  padding: 1.5rem 1.5rem 1.5rem calc(var(--sidebar-width) + 3rem);
 }
 
 @media (max-width: 768px) {
   .main-content {
-    margin-left: 0;
-    width: 100%;
     padding: 4.5rem 1rem 1rem;
   }
 }
@@ -266,7 +263,27 @@ img { max-width: 100%; height: auto; }
   flex-direction: column;
   justify-content: space-between;
   z-index: 100;
-  overflow: hidden; /* ensure children respect bounds */
+  overflow: hidden;
+}
+/* Responsive Split Grids for Templates */
+.template-split-xl, .template-split-md {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .template-split-md {
+    display: grid;
+    grid-template-columns: var(--split-ratio, 1fr 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .template-split-xl {
+    display: grid;
+    grid-template-columns: var(--split-ratio, 2fr 1fr);
+  }
 }
 
 /* Inner wrapper: logo + nav — must be a flex column that shrinks */

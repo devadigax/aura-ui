@@ -24,6 +24,8 @@ export {
   FormSwitchInput,
   InputGroup,
   InputIcon,
+  FormImagePlaceholder,
+  Range,
 } from './components/Form/Form';
 export { default as ListGroup } from './components/ListGroup/ListGroup';
 export { default as Pagination } from './components/Pagination/Pagination';
@@ -35,3 +37,6 @@ export { default as Table } from './components/Table/Table';
 export { default as Toast, ToastContainer } from './components/Toast/Toast';
 export { default as Tooltip } from './components/Tooltip/Tooltip';
 export { default as Nav, Navbar } from './components/Nav/Nav';
+export { default as Avatar } from './components/Avatar/Avatar';
+export { default as Divider } from './components/Divider/Divider';
+export { default as Stepper } from './components/Stepper/Stepper';

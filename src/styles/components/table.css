@@ -66,5 +66,51 @@
 }
 
 [data-theme="dark"] .table-glass th {
-  background: rgba(255,255,255,0.02);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* --- Table Styles Variants --- */
+.table-striped tbody tr:nth-of-type(odd) {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .table-striped tbody tr:nth-of-type(odd) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.table-bordered {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .table-bordered {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+[data-theme="dark"] .table-bordered th,
+[data-theme="dark"] .table-bordered td {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table-borderless th,
+.table-borderless td {
+  border: none;
+}
+
+/* --- Content Colors/Variants --- */
+.table-primary { --tbl-bg: rgba(99, 102, 241, 0.05); --tbl-th: rgba(99, 102, 241, 0.15); --tbl-border: rgba(99, 102, 241, 0.2); }
+.table-success { --tbl-bg: rgba(34, 197, 94, 0.05); --tbl-th: rgba(34, 197, 94, 0.15); --tbl-border: rgba(34, 197, 94, 0.2); }
+.table-danger  { --tbl-bg: rgba(239, 68, 68, 0.05); --tbl-th: rgba(239, 68, 68, 0.15); --tbl-border: rgba(239, 68, 68, 0.2); }
+.table-warning { --tbl-bg: rgba(234, 179, 8, 0.05); --tbl-th: rgba(234, 179, 8, 0.15); --tbl-border: rgba(234, 179, 8, 0.2); }
+.table-info    { --tbl-bg: rgba(6, 182, 212, 0.05); --tbl-th: rgba(6, 182, 212, 0.15); --tbl-border: rgba(6, 182, 212, 0.2); }
+
+.table-primary th, .table-success th, .table-danger th, .table-warning th, .table-info th {
+  background: var(--tbl-th);
+  border-color: var(--tbl-border);
+}
+.table-primary td, .table-success td, .table-danger td, .table-warning td, .table-info td {
+  background: var(--tbl-bg);
+  border-color: var(--tbl-border);
 }

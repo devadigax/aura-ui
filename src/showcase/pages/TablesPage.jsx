@@ -40,6 +40,34 @@ export default function TablesPage() {
       </section>
 
       <section className="glass p-4 mb-4">
+        <h2 className="fw-semibold mb-3" style={{ fontSize: '1.1rem' }}>Table Variants</h2>
+        <div className="card-grid card-grid-2">
+          <div>
+            <h5 className="fw-semibold mb-3" style={{ fontSize: '0.95rem' }}>Striped & Bordered</h5>
+            <Table striped bordered>
+              <thead><tr><th>#</th><th>First</th><th>Last</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Mark</td><td>Otto</td></tr>
+                <tr><td>2</td><td>Jacob</td><td>Thornton</td></tr>
+                <tr><td>3</td><td>Larry</td><td>the Bird</td></tr>
+              </tbody>
+            </Table>
+          </div>
+          <div>
+            <h5 className="fw-semibold mb-3" style={{ fontSize: '0.95rem' }}>Borderless & Primary Variant</h5>
+            <Table borderless variant="primary">
+              <thead><tr><th>#</th><th>First</th><th>Last</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Mark</td><td>Otto</td></tr>
+                <tr><td>2</td><td>Jacob</td><td>Thornton</td></tr>
+                <tr><td>3</td><td>Larry</td><td>the Bird</td></tr>
+              </tbody>
+            </Table>
+          </div>
+        </div>
+      </section>
+
+      <section className="glass p-4 mb-4">
         <h2 className="fw-semibold mb-2" style={{ fontSize: '1.1rem' }}>Usage</h2>
         <div className="code-block">
           {`import { Table } from 'aura-ui';\n\n<Table responsive glass hover>\n  <thead>...</thead>\n  <tbody>...</tbody>\n</Table>`}

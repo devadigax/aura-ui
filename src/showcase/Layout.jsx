@@ -26,6 +26,21 @@ const NAV_ITEMS = [
   { slug: 'sidebar', label: 'Sidebar', icon: <><rect x="3" y="4" width="6" height="16" rx="2" /><rect x="11" y="6" width="10" height="3" rx="1.5" /><rect x="11" y="11" width="8" height="3" rx="1.5" /><rect x="11" y="16" width="9" height="3" rx="1.5" /></> },
   { slug: 'tooltips', label: 'Tooltips', icon: <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> },
   { slug: 'popover', label: 'Popover', icon: <><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /><line x1="9" y1="10" x2="15" y2="10" /><line x1="9" y1="14" x2="13" y2="14" /></> },
+  { slug: 'avatar', label: 'Avatar', icon: <><circle cx="12" cy="8" r="4" /><path d="M4 20c0-4 4-7 8-7s8 3 8 7" /></> },
+  { slug: 'divider', label: 'Divider', icon: <line x1="4" y1="12" x2="20" y2="12" strokeWidth="2" strokeLinecap="round" /> },
+  { slug: 'stepper', label: 'Stepper', icon: <><circle cx="6" cy="12" r="3" /><circle cx="18" cy="12" r="3" /><line x1="9" y1="12" x2="15" y2="12" /></> },
+];
+
+const TEMPLATE_ITEMS = [
+  { slug: 'home', label: 'Home Page', icon: <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /> },
+  { slug: 'login', label: 'Login', icon: <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3" /> },
+  { slug: 'register', label: 'Register', icon: <><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></> },
+  { slug: 'create-form', label: 'Create Form', icon: <><polyline points="14 2 14 8 20 8"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M12 18v-6"/><path d="M9 15h6"/></> },
+  { slug: 'about', label: 'About Us', icon: <><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></> },
+  { slug: 'contact', label: 'Contact Us', icon: <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></> },
+  { slug: 'products', label: 'Products Grid', icon: <><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></> },
+  { slug: 'blog', label: 'Blog Page', icon: <><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></> },
+  { slug: 'dashboard', label: 'Admin Dashboard', icon: <><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></> },
 ];
 
 export default function Layout({ children }) {
@@ -92,7 +107,20 @@ export default function Layout({ children }) {
                   onClick={() => setMobileOpen(false)}
                   className={({ isActive }) => (isActive ? 'active' : '')}
                 >
-                  <svg className="nav-icon" viewBox="0 0 24 24">{icon}</svg>
+                  <svg className="nav-icon" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" stroke="currentColor">{icon}</svg>
+                  {label}
+                </NavLink>
+              ))}
+
+              <Sidebar.Section className="mt-4">Templates</Sidebar.Section>
+              {TEMPLATE_ITEMS.map(({ slug, label, icon }) => (
+                <NavLink
+                  key={slug}
+                  to={`/templates/${slug}`}
+                  onClick={() => setMobileOpen(false)}
+                  className={({ isActive }) => (isActive ? 'active' : '')}
+                >
+                  <svg className="nav-icon" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" stroke="currentColor">{icon}</svg>
                   {label}
                 </NavLink>
               ))}

@@ -13,6 +13,8 @@ import {
   InputIcon,
   Select,
   Textarea,
+  Range,
+  FormImagePlaceholder,
 } from '../../index';
 
 export default function FormsPage() {
@@ -76,8 +78,29 @@ export default function FormsPage() {
             <FormSwitchInput id="switch-2" type="checkbox" />
             <span>Unchecked switch</span>
           </FormSwitch>
+
+          <hr className="my-3" />
+
+          <h2 className="fw-semibold mb-3 mt-4" style={{ fontSize: '1.1rem' }}>Range Slider</h2>
+          <FormGroup>
+            <FormLabel>Volume Control</FormLabel>
+            <Range defaultValue="50" min="0" max="100" />
+          </FormGroup>
         </section>
       </div>
+
+      <section className="glass p-4 mb-4">
+        <h2 className="fw-semibold mb-3" style={{ fontSize: '1.1rem' }}>Image Placeholders</h2>
+        <div className="d-flex flex-wrap gap-4 align-items-center">
+          <FormImagePlaceholder size="lg" className="w-100 mb-3" />
+          
+          <div className="d-flex gap-4">
+            <FormImagePlaceholder size="md" />
+            <FormImagePlaceholder size="sm" />
+            <FormImagePlaceholder size="md" src="https://i.pravatar.cc/300" alt="Preview" />
+          </div>
+        </div>
+      </section>
 
       <section className="glass p-4 mb-4">
         <h2 className="fw-semibold mb-3" style={{ fontSize: '1.1rem' }}>Input Groups</h2>
